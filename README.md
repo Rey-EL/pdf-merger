@@ -41,7 +41,7 @@ To run the PDF Merger application from the source script, you need Python 3.
 
 1.  **Run the script from your terminal:**
     ```bash
-    python3 PdfMerger.py
+    python3 pdf_merger.py
     ```
 
 2.  **Select a Folder:** Click the **"1. Select Folder with PDFs"** button and choose the folder containing the PDFs you want to merge.
@@ -66,7 +66,7 @@ To build the executable:
 2.  **Run the build command from the project directory:**
     This command will create a `.spec` file and a `dist` folder containing the final `merge_pdfs.exe`.
     ```bash
-    pyinstaller --onefile --windowed PdfMerger.py
+    pyinstaller --onefile --windowed pdf_merger.py
     ```
 
 3.  The final `merge_pdfs.exe` will be located in the `dist` folder.

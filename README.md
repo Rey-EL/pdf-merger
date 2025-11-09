@@ -11,7 +11,7 @@ A simple and efficient Graphical User Interface (GUI) application built with Pyt
 *   **Ordered Merging:** Automatically sorts the found PDF files alphabetically by their full path to ensure a logical and predictable merge order.
 *   **User-Controlled Saving:** Prompts the user with a native "Save As" dialog to let them choose the exact name and location for the final merged PDF.
 *   **Robust Error Handling:** Safely handles corrupt or encrypted PDF files. If a file cannot be read, a warning is shown, and the script skips that file instead of crashing.
-    *   **Efficient Merging:** Uses the modern and actively maintained `pypdf` library for reliable performance.
+*   **Efficient Merging:** Uses the modern and actively maintained `pypdf` library for reliable performance.
 
 ---
 
@@ -79,3 +79,15 @@ To build the executable:
     ```
 
 3.  The final `merge_pdfs.exe` will be located in the `dist` folder.
+
+---
+
+## License
+
+This project is licensed under the MIT License - see the LICENSE.md file for details.
+
+---
+
+## Contributing
+
+Contributions are welcome! If you have suggestions for improvements, bug reports, or want to add new features, please feel free to open an issue or submit a pull request.

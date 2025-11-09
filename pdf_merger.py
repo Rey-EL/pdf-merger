@@ -1,3 +1,8 @@
+# Copyright (c) 2025 Elvis Reyes
+#
+# This software is licensed under the MIT License.
+# See the LICENSE.md file in the project root for full license terms.
+
 import os
 import tkinter as tk
 from tkinter import filedialog, messagebox

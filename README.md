@@ -11,14 +11,23 @@ A simple and efficient Graphical User Interface (GUI) application built with Pyt
 *   **Ordered Merging:** Automatically sorts the found PDF files alphabetically by their full path to ensure a logical and predictable merge order.
 *   **User-Controlled Saving:** Prompts the user with a native "Save As" dialog to let them choose the exact name and location for the final merged PDF.
 *   **Robust Error Handling:** Safely handles corrupt or encrypted PDF files. If a file cannot be read, a warning is shown, and the script skips that file instead of crashing.
-*   **Efficient Merging:** Uses the modern and actively maintained `pypdf` library for reliable performance.
+    *   **Efficient Merging:** Uses the modern and actively maintained `pypdf` library for reliable performance.
+
+---
+
+## Security Considerations
+
+PDF Merger is a local utility script and does not interact with networks or external services, which means it is not directly susceptible to many common web-based vulnerabilities like those in the OWASP Top 10. However, users should always:
+
+*   **Backup Important Data:** Before merging critical PDF documents, ensure they are backed up.
+*   **Handle Sensitive Information:** Be mindful of the content within the PDFs being merged, especially if they contain sensitive or confidential information. Ensure proper handling and storage of the resulting merged document.
+*   **Keep System Updated:** Ensure your operating system and Python environment are kept up-to-date with the latest security patches.
 
 ---
 
 ## Installation & Setup
 
 To run the PDF Merger application from the source script, you need Python 3.
-
 1.  **Navigate to the project directory:**
     ```bash
     cd pdf-merger

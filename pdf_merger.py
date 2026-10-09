@@ -79,17 +79,14 @@ class PdfMergerApp:
             messagebox.showerror("Error", "Please select a folder first.")
             return
         
-        # --- THIS IS THE NEW PART ---
-        # Open a "Save As" dialog
+        # Ask where to save the merged file; a cancelled dialog stops the process
         output_path = filedialog.asksaveasfilename(
             defaultextension=".pdf",
             filetypes=[("PDF files", "*.pdf"), ("All files", "*.*")],
             title="Save Merged PDF As..."
         )
-        # If the user cancels the save dialog, stop the process
         if not output_path:
             return
-        # --- END OF NEW PART ---
 
         # Run the merge function and show the result in a message box
         status = merge_pdfs_in_folder(self.selected_folder, output_path)

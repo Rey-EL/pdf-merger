@@ -1,93 +1,49 @@
 # pdf-merger
 
-A simple and efficient Graphical User Interface (GUI) application built with Python and Tkinter for merging multiple PDF files into a single document.
+I kept needing to combine scattered PDFs into one file, so I built this small GUI for it.
 
----
+![CI](https://github.com/Rey-EL/pdf-merger/actions/workflows/ci.yml/badge.svg)
+![Python](https://img.shields.io/badge/python-3.10%20%7C%203.11%20%7C%203.12-blue)
+![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)
 
-## Key Features
+## Features
 
-*   **Full GUI Application:** Built with `tkinter` for a simple, user-friendly interface.
-*   **Recursive PDF Discovery:** Select a single folder, and the application will automatically find all `.pdf` files within that folder and all its subfolders.
-*   **Ordered Merging:** Automatically sorts the found PDF files alphabetically by their full path to ensure a logical and predictable merge order.
-*   **User-Controlled Saving:** Prompts the user with a native "Save As" dialog to let them choose the exact name and location for the final merged PDF.
-*   **Robust Error Handling:** Safely handles corrupt or encrypted PDF files. If a file cannot be read, a warning is shown, and the script skips that file instead of crashing.
-*   **Efficient Merging:** Uses the modern and actively maintained `pypdf` library for reliable performance.
+- Finds every PDF in a folder, including subfolders
+- Merges them in alphabetical path order
+- Skips corrupt or encrypted files with a warning instead of crashing
+- Lets you pick the output name and location with a Save As dialog
 
----
+## Install
 
-## Security Considerations
-
-PDF Merger is a local utility script and does not interact with networks or external services, which means it is not directly susceptible to many common web-based vulnerabilities like those in the OWASP Top 10. However, users should always:
-
-*   **Backup Important Data:** Before merging critical PDF documents, ensure they are backed up.
-*   **Handle Sensitive Information:** Be mindful of the content within the PDFs being merged, especially if they contain sensitive or confidential information. Ensure proper handling and storage of the resulting merged document.
-*   **Keep System Updated:** Ensure your operating system and Python environment are kept up-to-date with the latest security patches.
-
----
-
-## Installation & Setup
-
-To run the PDF Merger application from the source script, you need Python 3.
-1.  **Navigate to the project directory:**
-    ```bash
-    cd pdf-merger
-    ```
-
-2.  **Install dependencies:**
-    It's highly recommended to use a virtual environment.
-    ```bash
-    # Create and activate a virtual environment (optional but recommended)
-    python3 -m venv venv
-    source venv/bin/activate  # On Windows, use `venv\Scripts\activate`
-
-    # Install the required packages
-    pip install -r requirements.txt
-    ```
-
----
+```bash
+git clone https://github.com/Rey-EL/pdf-merger.git
+cd pdf-merger
+pip install -r requirements.txt
+```
 
 ## Usage
 
-1.  **Run the script from your terminal:**
-    ```bash
-    python3 pdf_merger.py
-    ```
+```bash
+python3 pdf_merger.py
+```
 
-2.  **Select a Folder:** Click the **"1. Select Folder with PDFs"** button and choose the folder containing the PDFs you want to merge.
+1. Click "1. Select Folder with PDFs" and pick the folder.
+2. Click "2. Merge and Save As..." and choose where the merged file goes.
 
-3.  **Merge and Save:** Click the **"2. Merge and Save As..."** button. A "Save As" dialog will appear, allowing you to name your merged file and choose where to save it.
+## How it works
 
-4.  **Done:** A success message will appear when the merge is complete.
+The merge logic (`merge_pdfs_in_folder`) walks the folder, sorts the PDFs, and appends them one by one with pypdf. A file that fails to append is reported and skipped; the rest still merge. Tests live in `tests/` and run on Python 3.10–3.12 in CI.
 
----
+## Project structure
 
-## Creating a Standalone Executable (Optional)
-
-You can bundle this application and its dependencies into a single standalone `.exe` file for Windows using **PyInstaller**. This allows it to be run on machines that do not have Python installed.
-
-To build the executable:
-
-1.  **Install PyInstaller:**
-    ```bash
-    pip install pyinstaller
-    ```
-
-2.  **Run the build command from the project directory:**
-    This command will create a `.spec` file and a `dist` folder containing the final `merge_pdfs.exe`.
-    ```bash
-    pyinstaller --onefile --windowed pdf_merger.py
-    ```
-
-3.  The final `merge_pdfs.exe` will be located in the `dist` folder.
-
----
+```
+pdf-merger/
+├── pdf_merger.py             # the tool (merge logic + tkinter GUI)
+├── requirements.txt
+├── tests/                    # pytest suite (merge logic only)
+└── .github/workflows/ci.yml  # CI workflow
+```
 
 ## License
 
-This project is licensed under the [MIT License](./LICENSE.md) - see the LICENSE.md file for details.
-
----
-
-## Contributing
-
-Contributions are welcome! If you have suggestions for improvements, bug reports, or want to add new features, please feel free to open an issue or submit a pull request.
+MIT — see [LICENSE.md](LICENSE.md).
